@@ -22,7 +22,10 @@ class SassLordt:
 
     async def on_command(self, command, ctx):
         m = ctx.message
-        if m.author.bot is False:
+
+        chance = random.randint(1,100)
+
+        if m.author.bot is False and chance <= 10:
             for k, v in self.system.items():
                 if k in str(command):
                     await self.bot.send_message(m.channel, random.choice(v))
